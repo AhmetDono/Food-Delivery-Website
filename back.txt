@@ -1,0 +1,31 @@
+user=>
+name
+email
+password
+address
+isAdmin
+img
+    resetPasswordToken:String,
+    resetPasswordExpire:Date,
+
+urun=>
+name
+desc
+img
+cat
+size
+price
+inStock
+
+
+cart=>
+userId
+products->product id quantity size
+total price
+
+
+order
+userid
+products->product id quantity size
+total price
+address

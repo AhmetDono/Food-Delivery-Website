@@ -1,0 +1,19 @@
+3-token islemleri bitti gibi tokene gore api call u kaldi middleware felan 4-localStorage cart ve frontend
+
+
+
+oncelikli ====>>> Resim isleri yapildi kullanici update ve food update var orda resimleri hallet
+user ve food uzerinde aggregationlar olustur ve dashboardda kullan
+
+daha sonra frontendde yemekleri ve singlePagelerini listele
+
+
+TOKEN ISLEMLERI
+create ediliyo ama token tabanli yetkilendirme yok
+
+
+COGUNLUKLA TAMAMLANDI 
+auth (sifre yenileme kaldi)
+
+TAMAMLANACAK
+CART=>FRONTEND TARAFINDA

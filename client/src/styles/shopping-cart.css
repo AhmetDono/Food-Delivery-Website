@@ -1,0 +1,73 @@
+@import '../index.css';
+.cart__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.639);
+  z-index: 999;
+}
+.cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+}
+.cart__close {
+  width: 100%;
+  height: 60px;
+  padding: 10px 20px;
+}
+.cart__close span {
+  float: right;
+  margin-top: 5px;
+}
+
+.cart__close span i {
+  font-size: 1.1rem;
+  background: var(--primary-color);
+  padding: 5px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cart__item-list {
+  height: calc(100vh - 140px);
+  overflow: scroll;
+}
+.cart__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  width: 100%;
+  height: 80px;
+  background: var(--secondary-color);
+}
+
+.cart__bottom h6 {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.cart__bottomh6 span {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.cart__bottom button {
+  border: none;
+  padding: 4px 20px;
+  background: #fff;
+  color: var(--primary-color);
+}
+
+.cart__bottom button a {
+  color: var(--primary-color);
+  font-weight: 600;
+}

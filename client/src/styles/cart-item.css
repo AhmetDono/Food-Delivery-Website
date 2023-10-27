@@ -1,0 +1,44 @@
+@import '../index.css';
+
+.cart__item-info img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.cart__product-title {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.cart__product-price {
+  font-size: 0.8rem;
+}
+
+.cart__product-price span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.increase__decrease-btn {
+  background: var(--third-color);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.increase__btn,
+.decrease__btn {
+  cursor: pointer;
+}
+
+.delete__btn {
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cart__item {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--third-color) !important;
+}

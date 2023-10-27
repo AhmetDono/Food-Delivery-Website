@@ -1,0 +1,37 @@
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-21T11:03:35.677Z"}
+{"level":"error","message":"[User Name:admin] [Event Type: Login] [Success Status: Unsuccessful] [Error Message: Password is incorrect]","timestamp":"2023-10-21T11:03:53.956Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-21T11:11:24.962Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-21T11:12:40.234Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-21T14:39:19.621Z"}
+{"level":"error","message":"[User Name:admin] [Event Type: Login] [Success Status: Unsuccessful] [Error Message: Password is incorrect]","timestamp":"2023-10-21T14:39:57.361Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T06:51:11.276Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T06:54:40.488Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T06:58:31.168Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T06:58:38.105Z"}
+{"level":"info","message":"[User Name:admin2] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T08:42:08.132Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T08:46:18.704Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T09:28:20.609Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T10:00:42.067Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T10:42:58.032Z"}
+{"level":"error","message":"[User Name:deneme3] [Event Type: Login] [Success Status: Unsuccessful] [Error Message: Password is incorrect]","timestamp":"2023-10-22T10:50:37.231Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T10:50:58.645Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T10:54:03.177Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T10:56:24.496Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-22T11:09:27.220Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T06:45:18.028Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T07:07:21.750Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T07:08:35.631Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T07:09:15.277Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T07:10:46.990Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T07:16:56.778Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T07:22:32.966Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T10:32:24.764Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T10:57:39.858Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T10:59:43.565Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T11:00:05.785Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T11:52:52.723Z"}
+{"level":"info","message":"[User Name:deneme3] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T12:00:04.105Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T12:01:53.501Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T17:28:11.782Z"}
+{"level":"info","message":"[User Name:deneme3] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T17:28:20.917Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Login] [Success Status: Successful]","timestamp":"2023-10-26T17:28:38.184Z"}

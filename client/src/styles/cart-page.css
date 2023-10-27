@@ -1,0 +1,39 @@
+@import '../index.css';
+
+th {
+  text-align: center !important;
+  border-bottom: 3px solid black !important;
+  background: var(--third-color) !important;
+}
+
+td {
+  vertical-align: middle;
+}
+.cart__img-box {
+  width: 80px;
+}
+
+.cart__img-box img {
+  width: 100%;
+}
+
+.cart__item-del i {
+  cursor: pointer;
+}
+
+.cart__page-btn a,
+.cart__page-btn a:hover {
+  color: #fff;
+}
+
+.cart__subtotal {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  th,
+  td {
+    font-size: 0.8rem;
+  }
+}

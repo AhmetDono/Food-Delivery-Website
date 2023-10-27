@@ -1,0 +1,23 @@
+Home=>
+->order now kismi calismiyo
+->Kategoriler calismiyo
+->populer yemekler gelmeli
+->testimonial
+->mail gonderme
+
+
+
+foods=>
+->calisan bi arama var duzenle
+->filter calismiyor
+->yemeklere single product ekle
+-paging calisiyor
+
+
+Cart=>
+->calisiyo
+->delete calisiyo
+
+
+Contact=>
+-bombos

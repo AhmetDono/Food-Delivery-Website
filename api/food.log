@@ -1,0 +1,26 @@
+{"level":"info","message":"[Food Name:undefined] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-21T14:18:29.947Z"}
+{"level":"error","message":"[Event Type: Create Food] [Success Status: Unsuccessful] [Error Message: The Food could not be created]","timestamp":"2023-10-21T14:25:46.561Z"}
+{"level":"info","message":"[Food Name:Kopernik Katik] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T13:30:49.857Z"}
+{"level":"info","message":"[Food Name:Kopernik Taco] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T13:47:37.069Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:23:46.998Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:23:47.627Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:23:47.811Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:23:49.555Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:23:50.635Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:23:50.947Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:26:34.826Z"}
+{"level":"info","message":"[Food Name:asdasd] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:27:02.140Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:27:06.776Z"}
+{"level":"info","message":"[Food Name:deneme] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:28:44.616Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:28:50.528Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:28:51.619Z"}
+{"level":"info","message":"[Food Name:deneme] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:30:40.965Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:32:24.093Z"}
+{"level":"info","message":"[Food Name:deneme] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:33:17.629Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:33:31.175Z"}
+{"level":"info","message":"[Food Name:deneme] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:36:08.595Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T14:36:21.471Z"}
+{"level":"info","message":"[Food Name:Kopernik Taco] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:45:37.371Z"}
+{"level":"info","message":"[Food Name:Kopernik Ramen] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:55:45.065Z"}
+{"level":"info","message":"[Food Name:deneme] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T15:13:25.346Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T15:13:39.902Z"}

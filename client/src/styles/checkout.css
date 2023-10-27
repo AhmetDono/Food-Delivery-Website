@@ -1,0 +1,20 @@
+@import '../index.css';
+.checkout__bill {
+  background: var(--third-color);
+  padding: 30px;
+}
+
+.checkout__total {
+  border-top: 1px solid rgba(221, 221, 221, 0.85);
+  padding-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .checkout__total h6,
+  .checkout__bill h6 {
+    font-size: 0.9rem;
+  }
+  .checkout__bill {
+    margin-top: 40px;
+  }
+}

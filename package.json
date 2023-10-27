@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-router-dom": "^5.3.4",
+    "redux-persist": "^6.0.0"
+  }
+}
