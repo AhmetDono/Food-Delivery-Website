@@ -24,3 +24,7 @@
 {"level":"info","message":"[Food Name:Kopernik Ramen] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T14:55:45.065Z"}
 {"level":"info","message":"[Food Name:deneme] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T15:13:25.346Z"}
 {"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T15:13:39.902Z"}
+{"level":"info","message":"[Food Name:Kopernik Katik] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-27T15:40:03.706Z"}
+{"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T15:40:46.435Z"}
+{"level":"info","message":"[Food Name:Kopernik Hamburger] [Event Type: Update Food] [Success Status: Successful]","timestamp":"2023-10-28T11:59:02.721Z"}
+{"level":"info","message":"[Food Name:Kopernik Pizza] [Event Type: Update Food] [Success Status: Successful]","timestamp":"2023-10-28T12:00:54.011Z"}

@@ -8,6 +8,7 @@ const authSlice = createSlice({
     error:false,
   },
   reducers:{
+    //!LOGIN
     loginStart:(state)=>{
       state.isFetching=true;  // ! fetch islemini baslatiyor
     },
@@ -19,10 +20,14 @@ const authSlice = createSlice({
       state.isFetching=false;
       state.error=true;
     },
+
+    //!LOGOUT
     logout:(state)=>{
       state.currentUser=false
       state.error=false
     },
+
+    //!REGISTER
     registerStart:(state)=>{
       state.isFetching=true;  // ! fetch islemini baslatiyor
     },

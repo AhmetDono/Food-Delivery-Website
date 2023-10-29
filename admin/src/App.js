@@ -4,7 +4,7 @@ import List from "./pages/list/List";
 import FoodList from "./pages/foodList/FoodList";
 import Single from "./pages/single/Single";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { foodInputs } from "./formSource";
+import { foodInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -14,6 +14,8 @@ import OrderList from "./pages/orderList/OrderList";
 import SingleOrder from "./pages/singleOrder/SingleOrder";
 import Logs from "./pages/logs/Logs";
 import { useSelector } from "react-redux";
+import EditProfile from "./pages/editProfile/EditProfile";
+import EditFood from "./pages/editFood/EditFood";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -23,22 +25,41 @@ function App() {
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
-            <Route path="/">
+          <Route path="/">
             <Route index element={<Home />} />
             <Route path="user/:userId">
               <Route index element={<Single />} />
             </Route>
-            <Route path="login" element={user || isAdmin ? <Home /> : <Login />} />
+            <Route
+              path="login"
+              element={user || isAdmin ? <Home /> : <Login />}
+            />
             {isAdmin && (
               <>
                 <Route path="users" element={<List />} />
                 <Route path="user/:userId" element={<Single />} />
+                <Route
+                  path="user/editProfile/:userId"
+                  element={
+                    <EditProfile
+                      inputs={userInputs}
+                      title="Edit User Profile"
+                    />
+                  }
+                />
                 <Route path="foods" element={<FoodList />} />
                 <Route path="food/:foodId" element={<SingleFood />} />
                 <Route
                   path="foods/new"
+                  element={<NewFood inputs={foodInputs} title="Add New Food" />}
+                />
+                <Route
+                  path="food/editFoodDetails/:foodId"
                   element={
-                    <NewFood inputs={foodInputs} title="Add New Food" />
+                    <EditFood
+                      inputs={foodInputs}
+                      title="Edit Food Details"
+                    />
                   }
                 />
                 <Route path="orders" element={<OrderList />} />

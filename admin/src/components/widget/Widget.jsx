@@ -5,10 +5,8 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 
-const Widget = ({ type, amount,diff  }) => {
+const Widget = ({ type, amount, diff }) => {
   let data;
-
-  //temporary
 
   switch (type) {
     case "user":

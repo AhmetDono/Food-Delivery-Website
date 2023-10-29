@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Single = () => {
@@ -20,11 +20,13 @@ const Single = () => {
         <Navbar />
         <div className="top">
           <div className="left">
+            <Link to={`/user/editProfile/${userId}`}>
             <div className="editButton">Edit</div>
+            </Link>
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src={User.image}
+                src={User.img}
                 alt=""
                 className="itemImg"
               />
@@ -36,12 +38,12 @@ const Single = () => {
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
-                  <span className="itemValue">+{User.number}</span>
+                  <span className="itemValue">+{User.phoneNumber}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Address:</span>
                   <span className="itemValue">
-                    Elton St. 234 Garden Yd. NewYork
+                    {User.address.city +" "+ User.address.streetAddress +" "+ User.address.postalCode }
                   </span>
                 </div>
               </div>

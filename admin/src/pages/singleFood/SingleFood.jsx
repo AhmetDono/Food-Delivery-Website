@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 //import List from "../../components/table/Table";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const SingleFood = () => {
@@ -21,7 +21,9 @@ const SingleFood = () => {
         <Navbar />
         <div className="top">
           <div className="left">
+          <Link to={`/food/editFoodDetails/${foodId}`}>
             <div className="editButton">Edit</div>
+            </Link>
             <h1 className="title">Information</h1>
             <div className="item">
               <img

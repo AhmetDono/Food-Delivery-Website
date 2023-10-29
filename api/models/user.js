@@ -16,11 +16,16 @@ const userSchema = new mongoose.Schema(
             type:String,
             required:true,
         },
+        phoneNumber:{
+            type:Number,
+            unique:true
+        }
+        ,
         address:{
             streetAddress:{
                 type:String,
             },
-            City:{
+            city:{
                 type:String,
             },
             postalCode:{

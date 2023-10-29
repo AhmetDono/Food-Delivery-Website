@@ -8,7 +8,7 @@ const foodSlice = createSlice({
     error:false,
   },
   reducers:{
-    //! tum foodlarin listesini cekmek
+    //! GET ALL FOOD
     getFoodsStart:(state)=>{
       state.isFetching=true;  // ! fetch islemini baslatiyor
       state.error=false;
@@ -22,6 +22,7 @@ const foodSlice = createSlice({
       state.isFetching=false;
       state.error=true;
     },
+
     //! ADD FOOD
     createFoodStart:(state)=>{
       state.isFetching=true;  // ! fetch islemini baslatiyor
@@ -36,6 +37,22 @@ const foodSlice = createSlice({
       state.isFetching=false;
       state.error=true;
     },
+
+    //!UPDATE FOOD
+    updateFoodStart:(state)=>{
+      state.isFetching=true;
+      state.error=false;
+    },
+    updateFoodSuccess:(state,action)=>{
+      state.isFetching=false;
+      state.error=false;
+      state.foods[state.foods.findIndex((item)=>item._id===action.payload.id)] = action.payload.food
+    },
+    updateFoodFailure:(state)=>{
+      state.isFetching=false;
+      state.error=true;
+    },
+
     //! DELETE FOOD
     deleteFoodtStart:(state)=>{
       state.isFetching=true;
@@ -61,8 +78,11 @@ export const {getFoodsStart,
     createFoodStart,
     createFoodSuccess,
     createFoodFailure,
+    updateFoodStart,
+    updateFoodSuccess,
+    updateFoodFailure,
     deleteFoodtStart,
     deleteFoodSuccess,
-    deleteFoodFailure
+    deleteFoodFailure,
   } = foodSlice.actions;
 export default foodSlice.reducer;

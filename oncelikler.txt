@@ -2,10 +2,14 @@
 
 
 
-oncelikli ====>>> Resim isleri yapildi kullanici update ve food update var orda resimleri hallet
-user ve food uzerinde aggregationlar olustur ve dashboardda kullan
+oncelikli ====>>> User ve Food guncellenirken getALl user ve food uzerinden guncelleniyor
+foods ve users sayfasina gitmeden profil kismi guncellenmiyor duzelt
+
+aggregationlar olustur ve dashboardda kullan
 
 daha sonra frontendde yemekleri ve singlePagelerini listele
+
+cart islemlerinden sonra order islemlerinide yap
 
 
 TOKEN ISLEMLERI

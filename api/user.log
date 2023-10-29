@@ -1,0 +1,16 @@
+{"level":"error","message":"[Event Type: Update User] [Success Status: Unsuccessful] [Error Message: User could not be updated]","timestamp":"2023-10-28T10:08:47.130Z"}
+{"level":"error","message":"[Event Type: Update User] [Success Status: Unsuccessful] [Error Message: User could not be updated]","timestamp":"2023-10-28T10:22:50.257Z"}
+{"level":"info","message":"[User Name:admin] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:23:11.780Z"}
+{"level":"info","message":"[User Name:denemeAdmin] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:23:24.607Z"}
+{"level":"info","message":"[User Name:denemeAdmin] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:26:57.669Z"}
+{"level":"info","message":"[User Name:denemeAdmin2] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:35:53.621Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:36:29.915Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:52:06.438Z"}
+{"level":"info","message":"[User Name:Ahmet Donoa] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:54:53.447Z"}
+{"level":"info","message":"[User Name:Ahmet Donoa] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:57:42.494Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T10:59:00.428Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T11:14:26.183Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T11:14:33.705Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T11:21:16.657Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T11:35:02.309Z"}
+{"level":"info","message":"[User Name:Ahmet Dono] [Event Type: Update User] [Success Status: Successful]","timestamp":"2023-10-28T11:36:42.811Z"}

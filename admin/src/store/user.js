@@ -22,11 +22,29 @@ const userSlice = createSlice({
       state.isFetching=false;
       state.error=true;
     },
+
+    //!Update User
+    updateUserStart:(state)=>{
+      state.isFetching=true;
+      state.error=false;
+    },
+    updateUserSuccess:(state,action)=>{
+      state.isFetching=false;
+      state.error=false;
+      state.users[state.users.findIndex((item)=>item._id===action.payload.id)] = action.payload.user
+    },
+    updateUserFailure:(state)=>{
+      state.isFetching=false;
+      state.error=true;
+    },
   },
 })
 
 export const {getUsersStart,
     getUsersSuccess,
     getUsersFailure,
+    updateUserStart,
+    updateUserSuccess,
+    updateUserFailure,
   } = userSlice.actions;
 export default userSlice.reducer;

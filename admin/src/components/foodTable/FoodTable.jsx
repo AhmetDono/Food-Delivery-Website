@@ -23,7 +23,6 @@ const FoodTable = () => {
       });
   };
 
-
   const dispacth = useDispatch();
   const food = useSelector((state)=>state.food.foods);
   useEffect(()=>{
@@ -36,11 +35,6 @@ const FoodTable = () => {
     showDeleteFoodToast()
   };
 
-  const handleUpdate = (id) =>{
-
-  }
-
-
   const actionColumn = [
     {
       field: "action",
@@ -52,12 +46,9 @@ const FoodTable = () => {
             <Link to={"/food/" + params.row._id} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
-            <div
-              className="updateButton"
-              onClick={() => handleUpdate(params.row.id)}
-            >
-              Update
-            </div>
+            <Link to={"/food/editFoodDetails/" + params.row._id} style={{ textDecoration: "none" }}>
+              <div className="viewButton">Edit</div>
+            </Link>
             <button
               className="deleteButton"
               onClick={(e) => handleDelete(params.row._id,e)}

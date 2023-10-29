@@ -1,7 +1,7 @@
 import { loginFailure, loginStart, loginSuccess, registerFailure, registerStart, registerSuccess } from "./auth"
 import {publicRequest} from '../requestMethods'
-import { getUsersFailure, getUsersStart, getUsersSuccess } from "./user";
-import { createFoodFailure, createFoodStart, createFoodSuccess, deleteFoodFailure, deleteFoodSuccess, deleteFoodtStart, getFoodsFailure, getFoodsStart, getFoodsSuccess } from "./food";
+import { getUsersFailure, getUsersStart, getUsersSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from "./user";
+import { createFoodFailure, createFoodStart, createFoodSuccess, deleteFoodFailure, deleteFoodSuccess, deleteFoodtStart, getFoodsFailure, getFoodsStart, getFoodsSuccess, updateFoodFailure, updateFoodStart, updateFoodSuccess } from "./food";
 
 //!auth
 export const login = async(dispatch,user)=>{
@@ -35,6 +35,16 @@ export const getAllUsers = async(dispatch)=>{
     }
 }
 
+export const updateUser = async(dispatch,user,id)=>{
+    dispatch(updateUserStart());
+    try {
+    const res = await publicRequest.put(`user/updateUser/${id}`,user);
+    dispatch(updateUserSuccess(res.data));
+    } catch (err) {
+    dispatch(updateUserFailure());
+    }
+}
+
 //!food
 export const getAllFoods = async(dispatch)=>{
     dispatch(getFoodsStart());
@@ -56,6 +66,16 @@ export const createFood = async (dispatch,food) => {
     }
 };
 
+export const updateFood = async(dispatch,food,id)=>{
+    dispatch(updateFoodStart());
+    try {
+    const res = await publicRequest.put(`food/updateFood/${id}`,food);
+    dispatch(updateFoodSuccess(res.data));
+    } catch (err) {
+    dispatch(updateFoodFailure(err));
+    }
+}
+
 export const deleteFood = async (dispatch,id) => {
     dispatch(deleteFoodtStart());
     try {
@@ -64,7 +84,7 @@ export const deleteFood = async (dispatch,id) => {
     } catch (err) {
       dispatch(deleteFoodFailure());
     }
-  };
+};
   
 
 
