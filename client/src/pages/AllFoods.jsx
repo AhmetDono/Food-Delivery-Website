@@ -1,21 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
-import products from '../assets/fake-data/products';
 import ProductCard from '../components/UI/product-card/ProductCard';
 import '../styles/all-foods.css';
 import ReactPaginate from 'react-paginate';
 import '../styles/pagination.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllFoods } from '../../src/store/apiCalls';
+
 
 const AllFoods = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [pageNumber, setPageNumber] = useState(0);
+
+  const dispacth = useDispatch();
+  const food = useSelector((state)=>state.food.foods);
+  useEffect(()=>{
+    getAllFoods(dispacth)
+  },[dispacth])
+
+
   // eslint-disable-next-line array-callback-return
-  const searchedProduct = products.filter((item) => {
-    if (searchTerm.value === '') {
+  const searchedProduct = food.filter((item) => {
+    if (searchTerm === '') {
       return item;
-    } else if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+    } else if (item.foodName.toLowerCase().includes(searchTerm.toLowerCase())) {
       return item;
     }
   });

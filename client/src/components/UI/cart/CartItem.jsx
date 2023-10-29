@@ -4,24 +4,24 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../store/shopping-cart/cartSlice';
 import '../../../styles/cart-item.css';
 const CartItem = ({ item }) => {
-  const { id, title, price, image01, quantity, totalPrice } = item;
+  const { _id, foodName, price, image, quantity, totalPrice } = item;
   const dispatch = useDispatch();
   const increaseItem = () => {
-    dispatch(cartActions.addItem({ id, title, price, image01 }));
+    dispatch(cartActions.addItem({ _id, foodName, image, price }));
   };
   const decreaseItem = () => {
-    dispatch(cartActions.removeItem(id));
+    dispatch(cartActions.removeItem(_id));
   };
   const deleteItem = () => {
-    dispatch(cartActions.deleteItem(id));
+    dispatch(cartActions.deleteItem(_id));
   };
   return (
-    <ListGroupItem className='border-0 cart__item' key={id}>
+    <ListGroupItem className='border-0 cart__item' key={_id}>
       <div className='cart__item-info d-flex gap-2'>
-        <img src={image01} alt='product-img' />
+        <img src={image} alt='product-img' />
         <div className='cart__product-info w-100 d-flex align-items-center justify-content-between gap-4'>
           <div>
-            <h6 className='cart__product-title'>{title}</h6>
+            <h6 className='cart__product-title'>{foodName}</h6>
             <p className='d-flex align-items-center gap-5 cart__product-price'>
               x {quantity} = <span>${totalPrice}</span>
             </p>

@@ -23,7 +23,7 @@ const Cart = () => {
                   <thead>
                     <tr>
                       <th>Image</th>
-                      <th>Product Title</th>
+                      <th>Food Name</th>
                       <th>Price</th>
                       <th>Quantity</th>
                       <th>Delete</th>
@@ -60,16 +60,16 @@ const Cart = () => {
 };
 
 const Tr = (props) => {
-  const { id, image01, title, price, quantity } = props.item;
+  const { _id, image, foodName, price, quantity } = props.item;
   const dispatch = useDispatch();
 
-  const deleteItem = () => dispatch(cartActions.deleteItem(id));
+  const deleteItem = () => dispatch(cartActions.deleteItem(_id));
   return (
     <tr>
       <td className='text-center cart__img-box'>
-        <img src={image01} alt='food'></img>
+        <img src={image} alt='food'></img>
       </td>
-      <td className='text-center'>{title}</td>
+      <td className='text-center'>{foodName}</td>
       <td className='text-center'>${price}</td>
       <td className='text-center'>{quantity} pcs</td>
       <td onClick={deleteItem} className='text-center cart__item-del'>

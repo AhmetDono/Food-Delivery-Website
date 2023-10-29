@@ -15,16 +15,16 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       //Filtered new data in the initial state
       const existingItem = state.cartItems.find(
-        (item) => item.id === newItem.id
+        (item) => item._id === newItem._id
       );
       // Total quantity will increase by 1
       state.totalQuantity++;
       // If there is no new item in existing item, push the data of the new one to the array
       if (!existingItem) {
         state.cartItems.push({
-          id: newItem.id,
-          title: newItem.title,
-          image01: newItem.image01,
+          _id: newItem._id,
+          foodName: newItem.foodName,
+          image: newItem.image,
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
@@ -43,11 +43,11 @@ const cartSlice = createSlice({
       );
     },
     removeItem(state, action) {
-      const id = action.payload;
-      const existingItem = state.cartItems.find((item) => item.id === id);
+      const _id = action.payload;
+      const existingItem = state.cartItems.find((item) => item._id === _id);
       state.totalQuantity--;
       if (existingItem.quantity === 1) {
-        state.cartItems = state.cartItems.filter((item) => item.id !== id);
+        state.cartItems = state.cartItems.filter((item) => item._id !== _id);
       } else {
         existingItem.quantity--;
         existingItem.totalPrice =
@@ -59,11 +59,11 @@ const cartSlice = createSlice({
       );
     },
     deleteItem(state, action) {
-      const id = action.payload;
-      const existingItem = state.cartItems.find((item) => item.id === id);
+      const _id = action.payload;
+      const existingItem = state.cartItems.find((item) => item._id === _id);
 
       if (existingItem) {
-        state.cartItems = state.cartItems.filter((item) => item.id !== id);
+        state.cartItems = state.cartItems.filter((item) => item._id !== _id);
         state.totalQuantity = state.totalQuantity - existingItem.quantity;
       }
       state.totalAmount = state.cartItems.reduce(

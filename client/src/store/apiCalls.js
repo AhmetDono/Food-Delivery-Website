@@ -1,7 +1,9 @@
 import { loginFailure, loginStart, loginSuccess, registerFailure, registerStart, registerSuccess } from "./auth"
 import {publicRequest} from '../requestMethods'
+import { getFoodsFailure, getFoodsStart, getFoodsSuccess } from "./food";
 
 
+//! Auth
 export const login = async(dispatch,user)=>{
     dispatch(loginStart());
     try{
@@ -21,6 +23,18 @@ export const register = async(dispatch,user)=>{
         dispatch(registerFailure(err))
     }
 }
+
+//!Food
+export const getAllFoods = async(dispatch)=>{
+    dispatch(getFoodsStart());
+    try {
+        const res = await publicRequest.get("food/getAllFood");
+        dispatch(getFoodsSuccess(res.data))
+    } catch (error) {
+        dispatch(getFoodsFailure(error))
+    }
+}
+
 
 
 //export const logout = async(dispatch)=>{
