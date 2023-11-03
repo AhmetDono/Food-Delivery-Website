@@ -1,6 +1,7 @@
 import { loginFailure, loginStart, loginSuccess, registerFailure, registerStart, registerSuccess } from "./auth"
 import {publicRequest} from '../requestMethods'
 import { getFoodsFailure, getFoodsStart, getFoodsSuccess } from "./food";
+import { createOrderFailure, createOrderStart, createOrderSuccess } from "./order";
 
 
 //! Auth
@@ -35,6 +36,16 @@ export const getAllFoods = async(dispatch)=>{
     }
 }
 
+//!Order
+export const createOrder = async(dispatch,orderDetails)=>{
+    dispatch(createOrderStart());
+    try {
+        const res = await publicRequest.post("order/createOrder",orderDetails);
+        dispatch(createOrderSuccess(res.data))
+    } catch (error) {
+        dispatch(createOrderFailure(error))
+    }
+}
 
 
 //export const logout = async(dispatch)=>{

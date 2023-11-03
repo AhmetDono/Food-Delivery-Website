@@ -28,3 +28,4 @@
 {"level":"info","message":"[Event Type: Delete Food] [Success Status: Successful]","timestamp":"2023-10-27T15:40:46.435Z"}
 {"level":"info","message":"[Food Name:Kopernik Hamburger] [Event Type: Update Food] [Success Status: Successful]","timestamp":"2023-10-28T11:59:02.721Z"}
 {"level":"info","message":"[Food Name:Kopernik Pizza] [Event Type: Update Food] [Success Status: Successful]","timestamp":"2023-10-28T12:00:54.011Z"}
+{"level":"info","message":"[Food Name:Kopernik Sushi] [Event Type: Create Food] [Success Status: Successful]","timestamp":"2023-10-30T12:37:39.879Z"}

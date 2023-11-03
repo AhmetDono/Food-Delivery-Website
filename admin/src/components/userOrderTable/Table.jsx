@@ -11,12 +11,17 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 const List = () => {
+  //! kisinin orderlarini bulmali
   const dispatch = useDispatch();
-  const orders = useSelector((state) => state.order.orders);
-
+  //const location = useLocation();
+  //const userID=location.pathname.split("/")[2];//! kullanici id sini burdan yakalicam
   useEffect(() => {
     getAllOrders(dispatch);
   }, [dispatch]);
+  //!fins userdan alttaki user id ye email vercez
+  //const specificOrder = orders.find((order) => order.userId.email === userID);
+  const orders = useSelector((state) => state.order.orders);
+
   console.log(orders)
   return (
     <TableContainer component={Paper} className="table">

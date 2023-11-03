@@ -71,6 +71,19 @@ const cartSlice = createSlice({
         0
       );
     },
+    clearAllItems(state, action) {
+      // Sepet öğelerini sıfırlamak için payload'dan yeni bir dizi alın
+      state.cartItems = action.payload;
+      // Sepetteki toplam ürün sayısı ve toplam miktarı güncelleyin (gerekiyorsa)
+      state.totalQuantity = state.cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+      state.totalAmount = state.cartItems.reduce(
+        (total, item) => total + item.totalPrice,
+        0
+      );
+    },
   },
 });
 

@@ -12,8 +12,8 @@ import { logout } from '../../store/auth';
 import { useDispatch, useSelector } from "react-redux";
 
 const Sidebar = () => {
-  const isAdmin = useSelector((state) => state.auth.currentUser.isAdmin);
   const user = useSelector((state)=>state.auth.currentUser);
+  const isAdmin = user?.isAdmin; // Use optional chaining here
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     e.preventDefault();
@@ -31,12 +31,22 @@ const Sidebar = () => {
       <div className="center">
         <ul>
         <p className="title">USER</p>
-        <Link to={"/user/" + user._id} style={{ textDecoration: "none" }}>
-            <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-            </li>
-          </Link>
+        {user ? (
+            <Link to={"/user/" + user._id} style={{ textDecoration: "none" }}>
+              <li>
+                <AccountCircleOutlinedIcon className="icon" />
+                <span>Profile</span>
+              </li>
+            </Link>
+          ) : (
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <li>
+                <AccountCircleOutlinedIcon className="icon" />
+                <span>Login</span>
+              </li>
+            </Link>
+          )}
+
           {isAdmin && (
               <>
           <p className="title">MAIN</p>

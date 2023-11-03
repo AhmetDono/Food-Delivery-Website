@@ -1,38 +1,69 @@
-import React, { useState } from 'react';
-
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/checkout.css';
-const Checkout = () => {
-  const [enteredName, setEnteredName] = useState('');
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredNumber, setEnteredNumber] = useState('');
-  const [enteredAddress, setEnteredAddress] = useState('');
-  const [enteredCity, setEnteredCity] = useState('');
-  const [enteredPostalCode, setEnteredPostalCode] = useState('');
-  const [enteredCountry, setEnteredCountry] = useState('');
+import { createOrder } from '../store/apiCalls';
+import { cartActions } from '../store/shopping-cart/cartSlice';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-  const shippingInfo = [];
+
+const Checkout = () => {
+  const showSuccessToast = () => {
+    toast.success("The order was created successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  };
+  const showErrorToast = () => {
+    toast.success("Order could not be created!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  };
+  const user = useSelector((state) => state.auth.currentUser);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const shippingCost = 10;
   const totalAmount = cartTotalAmount + shippingCost;
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const userShippingAddress = {
-      name: enteredName,
-      email: enteredEmail,
-      phone: enteredNumber,
-      address: enteredAddress,
-      city: enteredCity,
-      postalCode: enteredPostalCode,
-      country: enteredCountry,
-    };
+  const dispatch = useDispatch();
 
-    shippingInfo.push(userShippingAddress);
-    console.log(shippingInfo);
-  };
+  const handlePayment = () => {
+    try {
+      const foods = cartItems.map((item) => ({
+        foodId: item._id,
+        quantity: item.quantity,
+        size: item.size,
+      }));
+      const orderDetails = {
+        userId: user._id,
+        foods: foods,
+        total: cartTotalAmount,
+        address: user.address.city + user.address.streetAddress + user.address.postalCode,
+      };
+      createOrder(dispatch, orderDetails);
+      showSuccessToast();
+      dispatch(cartActions.clearAllItems([]));
+    } catch (error) {
+      showErrorToast();
+    }
+  }
+  
+
   return (
     <Helmet title='Checkout'>
       <CommonSection title='Checkout' />
@@ -40,69 +71,26 @@ const Checkout = () => {
         <Container>
           <Row>
             <Col lg='8' md='6'>
-              <h6 className='mb-4'>Shipping Address</h6>
+              <h6 className='mb-4'>Shipping Address And Payment Methods</h6>
               <form
                 action=''
                 className='checkout__form'
-                onSubmit={submitHandler}
               >
                 <div className='form__group'>
-                  <input
-                    required
-                    type='text'
-                    placeholder='Name'
-                    onChange={(e) => setEnteredName(e.target.value)}
-                  />
+                <h5 className='mb-4'>Select Shipping Address</h5>
+                  <select className='' name="" id="">
+                    <option>{user.address.city} {user.address.streetAddress} {user.address.postalCode} </option>
+                  </select>
                 </div>
                 <div className='form__group'>
-                  <input
-                    required
-                    type='email'
-                    placeholder='Email'
-                    onChange={(e) => setEnteredEmail(e.target.value)}
-                  />
+                <h5 className='mb-4'>Select Payment Methods</h5>
+                  <select name="" id="">
+                    <option>Paypal</option>
+                    <option>Bank</option>
+                    <option>Cash</option>
+                  </select>
                 </div>
-                <div className='form__group'>
-                  <input
-                    required
-                    type='number'
-                    placeholder='Phone number'
-                    onChange={(e) => setEnteredNumber(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    required
-                    type='text'
-                    placeholder='Street Address'
-                    onChange={(e) => setEnteredAddress(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    required
-                    type='text'
-                    placeholder='City'
-                    onChange={(e) => setEnteredCity(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    required
-                    type='number'
-                    placeholder='Postal code'
-                    onChange={(e) => setEnteredPostalCode(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    required
-                    type='text'
-                    placeholder='Country'
-                    onChange={(e) => setEnteredCountry(e.target.value)}
-                  />
-                </div>
-                <button className='addToCart__btn'>Pay for your order</button>
+                <button className='addToCart__btn' onClick={handlePayment} >Pay for your order</button>
               </form>
             </Col>
             <Col lg='4' md='6'>

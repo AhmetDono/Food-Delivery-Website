@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Helmet from '../components/Helmet/Helmet.js';
-import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, Row, Col} from 'reactstrap';
 import heroImg from '../assets/images/hero.png';
 import '../styles/hero-section.css';
 import { Link } from 'react-router-dom';
@@ -9,14 +9,12 @@ import '../styles/home.css';
 import featureImg01 from '../assets/images/service-01.png';
 import featureImg02 from '../assets/images/service-02.png';
 import featureImg03 from '../assets/images/service-03.png';
-import products from '../assets/fake-data/products.js';
-import foodCategoryImg01 from '../assets/images/hamburger.png';
-import foodCategoryImg02 from '../assets/images/pizza.png';
-import foodCategoryImg03 from '../assets/images/bread.png';
+//import products from '../assets/fake-data/products.js';
 import ProductCard from '../components/UI/product-card/ProductCard.jsx';
-import whyImg from '../assets/images/location.png';
 import networkImg from '../assets/images/network.png';
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllFoods } from '../store/apiCalls.js';
 
 const featureData = [
   {
@@ -36,38 +34,19 @@ const featureData = [
   },
 ];
 const Home = () => {
-  const [category, setCategory] = useState('ALL');
-  const [allProducts, setAllProducts] = useState(products);
   const [hotPizza, setHotPizza] = useState([]);
+  const dispacth = useDispatch();
+  const food = useSelector((state)=>state.food.foods);
+  useEffect(()=>{
+    getAllFoods(dispacth)
+  },[dispacth])
 
   useEffect(() => {
-    const filteredPizza = products.filter((item) => item.category === 'Pizza');
-    const slicePizza = filteredPizza.slice(0, 4);
-    setHotPizza(slicePizza);
-  }, []);
-  useEffect(() => {
-    if (category === 'ALL') {
-      setAllProducts(products);
-    }
-    if (category === 'BURGER') {
-      const filteredProducts = products.filter(
-        (item) => item.category === 'Burger'
-      );
-      setAllProducts(filteredProducts);
-    }
-    if (category === 'PIZZA') {
-      const filteredProducts = products.filter(
-        (item) => item.category === 'Pizza'
-      );
-      setAllProducts(filteredProducts);
-    }
-    if (category === 'BREAD') {
-      const filteredProducts = products.filter(
-        (item) => item.category === 'Bread'
-      );
-      setAllProducts(filteredProducts);
-    }
-  }, [category]);
+    // food state'i değiştiğinde çalışacak kod bloğu
+    const lastFourFoods = food.slice(-4); // food state'inin son 4 öğesini al
+    setHotPizza(lastFourFoods);
+  }, [food]);
+
   return (
     <Helmet title='Home'>
       <section>
@@ -167,11 +146,11 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center mb-5'>
-              <h2>Populer Yemekler (ToDo) </h2>
+              <h2>Populer Yemekler </h2>
             </Col>
 
             {hotPizza.map((item) => (
-              <Col lg='3' md='4' key={item.id}>
+              <Col lg='3' md='4' key={item._id}>
                 <ProductCard item={item} />
               </Col>
             ))}

@@ -2,6 +2,7 @@ import { loginFailure, loginStart, loginSuccess, registerFailure, registerStart,
 import {publicRequest} from '../requestMethods'
 import { getUsersFailure, getUsersStart, getUsersSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from "./user";
 import { createFoodFailure, createFoodStart, createFoodSuccess, deleteFoodFailure, deleteFoodSuccess, deleteFoodtStart, getFoodsFailure, getFoodsStart, getFoodsSuccess, updateFoodFailure, updateFoodStart, updateFoodSuccess } from "./food";
+import { getAllOrderFailure, getAllOrderStart, getAllOrderSuccess, getUserOrderFailure, getUserOrderStart, getUserOrderSuccess } from "./order";
 
 //!auth
 export const login = async(dispatch,user)=>{
@@ -86,7 +87,27 @@ export const deleteFood = async (dispatch,id) => {
     }
 };
   
+//! order
+export const getAllOrders = async(dispatch)=>{
+    dispatch(getAllOrderStart());
+    try {
+        const res = await publicRequest.get("order/getAllUserOrder")
+        dispatch(getAllOrderSuccess(res.data))
+    } catch (error) {
+        dispatch(getAllOrderFailure(error))
+    }
+}
 
+//! order
+export const getUserOrder = async(dispatch,userID)=>{
+    dispatch(getUserOrderStart());
+    try {
+        const res = await publicRequest.get(`order/getUserOrder/${userID}`)
+        dispatch(getUserOrderSuccess(res.data))
+    } catch (error) {
+        dispatch(getUserOrderFailure(error))
+    }
+}
 
 
 //export const logout = async(dispatch)=>{

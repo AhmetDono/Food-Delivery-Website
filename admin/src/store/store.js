@@ -4,6 +4,7 @@ import cartUiSlice from './shopping-cart/cartUISlice';
 import  authReducer  from './auth';
 import userReducer from './user'
 import foodReducer from './food'
+import orderReducer from './order'
 import storage from 'redux-persist/lib/storage'
 import {
     persistStore,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers(
   {auth:authReducer,
     user:userReducer,
     food:foodReducer,
+    order:orderReducer,
     cart:cartSlice.reducer,
     cartUI:cartUiSlice.reducer})
 const persistedReducer = persistReducer(persistConfig, rootReducer)

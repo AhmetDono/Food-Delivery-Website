@@ -2,16 +2,18 @@ import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
+//import List from "../../components/table/Table"; //!tum orderlari cekiyo
+import List2 from "../../components/userOrderTable/Table"; //!kisinin orderlarini cekiyo
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Single = () => {
   const location = useLocation();
-  const userId=location.pathname.split("/")[2];
+  const userId = location.pathname.split("/")[2];
 
-  const User = useSelector((state)=>
-  state.user.users.find(user=>user._id===userId));
+  const User = useSelector((state) =>
+    state.user.users.find((user) => user._id === userId)
+  );
 
   return (
     <div className="single">
@@ -21,20 +23,16 @@ const Single = () => {
         <div className="top">
           <div className="left">
             <Link to={`/user/editProfile/${userId}`}>
-            <div className="editButton">Edit</div>
+              <div className="editButton">Edit</div>
             </Link>
             <h1 className="title">Information</h1>
             <div className="item">
-              <img
-                src={User.img}
-                alt=""
-                className="itemImg"
-              />
+              <img src={User.img} alt="" className="itemImg" />
               <div className="details">
-                <h1 className="itemTitle">{User.userName}</h1>
+                <h1 className="itemTitle">{User.phoneNumber || ""}</h1>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue">{User.email}</span>
+                  <span className="itemValue">{User.email || ""}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
@@ -43,7 +41,16 @@ const Single = () => {
                 <div className="detailItem">
                   <span className="itemKey">Address:</span>
                   <span className="itemValue">
-                    {User.address.city +" "+ User.address.streetAddress +" "+ User.address.postalCode }
+                    {User.address &&
+                    User.address.city &&
+                    User.address.streetAddress &&
+                    User.address.postalCode
+                      ? User.address.city +
+                        " " +
+                        User.address.streetAddress +
+                        " " +
+                        User.address.postalCode
+                      : ""}
                   </span>
                 </div>
               </div>
@@ -54,8 +61,8 @@ const Single = () => {
           </div>
         </div>
         <div className="bottom">
-        <h1 className="title">Last Orders</h1>
-          <List/>
+          <h1 className="title">Last Orders</h1>
+          <List2 />
         </div>
       </div>
     </div>

@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
-    userId: { type: String, required: true }, //! user id gelicek
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "user", },
     foods: [
-      {
+        {
         foodId: {
-          type: String,
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "food",
         },
         quantity: {
           type: Number,
@@ -22,7 +23,7 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       default:0
     },
-    address:{type:String ,required:true} //! address id gelicek
+    address:{type:String ,required:true}
   },
   { timestamps: true }
 );

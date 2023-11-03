@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { createFood } from "../../store/apiCalls";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from 'react-router-dom';
 
 const NewFood = ({ inputs, title }) => {
   const showSuccessToast = () => {
@@ -46,7 +47,7 @@ const NewFood = ({ inputs, title }) => {
   const [cat, setCat] = useState([]);
   const [size, setSize] = useState([]);
   const dispacth = useDispatch()
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setInput((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
@@ -99,10 +100,7 @@ const NewFood = ({ inputs, title }) => {
           const food = {...input,image:downloadURL,cat:cat,size:size};
           createFood(dispacth,food)
           showSuccessToast();
-          setFile(null);
-          setInput({});
-          setCat([]);
-          setSize([]);
+          navigate('/');
         });
       }
     );

@@ -61,16 +61,16 @@ const updateOrder = async (req, res) => {
 
 const getUserOrder = async (req, res) => {
   try {
-    const order = await Order.find({ userID: req.params.userID });
+    const order = await Order.find({ userID: req.params.userId }).populate('foods.foodId').populate('userId');
     res.status(200).json(order);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-const getAlluserOrder = async (req, res) => {
+const getAlluserOrder = async (req,res) => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find({}).populate('foods.foodId').populate('userId');
     res.status(200).json(orders);
   } catch (err) {
     res.status(500).json(err);

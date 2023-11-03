@@ -1,0 +1,15 @@
+{"level":"info","message":"[Order ID: 6540d893625c45a57ae66a51] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T10:36:03.778Z"}
+{"level":"info","message":"[Order ID: 6540daeb1941d28825a3b648] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T10:46:03.775Z"}
+{"level":"info","message":"[Order ID: 6540dcdd290c20f93eb6db94] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T10:54:21.126Z"}
+{"level":"info","message":"[Order ID: 6540fa5d12d2c2ffef8767a4] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T13:00:13.252Z"}
+{"level":"info","message":"[Order ID: 6540fa7c12d2c2ffef8767b6] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T13:00:44.656Z"}
+{"level":"info","message":"[Order ID: 6540fa8712d2c2ffef8767bd] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T13:00:55.046Z"}
+{"level":"error","message":"[Event Type: Create Order] [Success Status: Unsuccessful] [Error Message: Order could not be created]","timestamp":"2023-10-31T13:11:14.584Z"}
+{"level":"error","message":"[Event Type: Create Order] [Success Status: Unsuccessful] [Error Message: Order could not be created]","timestamp":"2023-10-31T13:11:55.011Z"}
+{"level":"info","message":"[Order ID: 6540fd8041d60abe4a09f36e] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T13:13:36.059Z"}
+{"level":"info","message":"[Order ID: 6540fdfb41d60abe4a09f385] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T13:15:39.144Z"}
+{"level":"info","message":"[Order ID: 6540fe3541d60abe4a09f39b] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-10-31T13:16:37.917Z"}
+{"level":"info","message":"[Order ID: 65422a13df307861e5a217aa] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-01T10:36:03.955Z"}
+{"level":"info","message":"[Order ID: 6544c71fef91525cd0c5f61b] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T10:10:39.443Z"}
+{"level":"info","message":"[Order ID: 6544cb11ef91525cd0c5f63c] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T10:27:29.381Z"}
+{"level":"info","message":"[Order ID: 6544cbfcef91525cd0c5f645] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T10:31:24.389Z"}

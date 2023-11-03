@@ -20,7 +20,8 @@ import EditFood from "./pages/editFood/EditFood";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   const user = useSelector((state) => state.auth.currentUser);
-  const isAdmin = useSelector((state) => state.auth.currentUser.isAdmin);
+  //const isAdmin = useSelector((state) => state.auth.currentUser.isAdmin);
+  const isAdmin = user?.isAdmin; // Use optional chaining here to handle null or undefined values
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
