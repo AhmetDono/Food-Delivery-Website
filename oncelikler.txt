@@ -1,7 +1,4 @@
-3-token islemleri bitti gibi tokene gore api call u kaldi middleware felan 4-localStorage cart ve frontend
-
-
-oncelikli ====>>>kullanici icin lastordelar yok id uzerinden bulcaz reducer ve api call lazim
+oncelikli ====>>>!!
 User ve Food guncellenirken getALl user ve food uzerinden guncelleniyor
 foods ve users sayfasina gitmeden profil kismi guncellenmiyor duzelt
 
@@ -10,6 +7,5 @@ TOKEN ISLEMLERI
 create ediliyo ama token tabanli yetkilendirme yok
 
 
-COGUNLUKLA TAMAMLANDI 
-auth (sifre yenileme kaldi)
+
 

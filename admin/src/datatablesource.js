@@ -154,7 +154,7 @@ export const foodColums = [
 ];
 
 export const orderColums = [
-  { field: "_id", headerName: "ID", width: 70 },
+  { field: "_id", headerName: "Order ID", width: 100 },
   {
     field: "userId",
     headerName: "User ID",
@@ -162,8 +162,8 @@ export const orderColums = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.userId}
+          <img className="cellImg" src={params.row.userId.img} alt="avatar" />
+          {params.row.userId.userName}
         </div>
       );
     },
@@ -172,8 +172,16 @@ export const orderColums = [
     field: "foods",
     headerName: "Foods",
     width: 230,
+    renderCell: (params) => {
+      const foodNames = params.row.foods.map((food) => food.foodId.foodName);
+      return <div>{foodNames}</div>;
+    },
   },
-
+  {
+    field: "foods",
+    headerName: "Foods",
+    width: 100, 
+  },
   {
     field: "total",
     headerName: "Total",
@@ -185,7 +193,7 @@ export const orderColums = [
     width: 100,
   },
   {
-    field: "timestamps",
+    field: "createdAt",
     headerName: "Time Stamps",
     width: 100,
   },

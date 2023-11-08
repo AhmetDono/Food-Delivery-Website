@@ -5,7 +5,6 @@ import AllFoods from '../pages/AllFoods';
 import FoodDetails from '../pages/FoodDetails';
 import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
-import Contact from '../pages/Contact';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import { useSelector } from 'react-redux';
@@ -27,7 +26,6 @@ const Routers = () => {
         path='/register'
         element={user ? <Navigate to='/' /> : <Register />} // Redirect to home if the user is already authenticated
       />
-      <Route path='/contact' element={<Contact />} />
       <Route path='/cart' element={<Cart />} />
     </Routes>
   );

@@ -8,9 +8,11 @@ import { createOrder } from '../store/apiCalls';
 import { cartActions } from '../store/shopping-cart/cartSlice';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useNavigate} from 'react-router-dom';
 
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const showSuccessToast = () => {
     toast.success("The order was created successfully!", {
       position: "top-right",
@@ -41,7 +43,7 @@ const Checkout = () => {
   const shippingCost = 10;
   const totalAmount = cartTotalAmount + shippingCost;
   const dispatch = useDispatch();
-
+  
   const handlePayment = () => {
     try {
       const foods = cartItems.map((item) => ({
@@ -58,8 +60,10 @@ const Checkout = () => {
       createOrder(dispatch, orderDetails);
       showSuccessToast();
       dispatch(cartActions.clearAllItems([]));
+      navigate('/home')
     } catch (error) {
       showErrorToast();
+      navigate('/home')
     }
   }
   
@@ -90,7 +94,7 @@ const Checkout = () => {
                     <option>Cash</option>
                   </select>
                 </div>
-                <button className='addToCart__btn' onClick={handlePayment} >Pay for your order</button>
+                <button type='button' className='addToCart__btn' onClick={handlePayment} >Pay for your order</button>
               </form>
             </Col>
             <Col lg='4' md='6'>

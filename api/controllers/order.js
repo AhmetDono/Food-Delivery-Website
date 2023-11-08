@@ -77,32 +77,26 @@ const getAlluserOrder = async (req,res) => {
   }
 };
 
-const getMonthlyIncome = async (req, res) => {
+const getMonthlyTotalIncome = async (req, res) => {
   const productId = req.query.pid; //pid = product id
   const date = new Date();
   const lastMonth = new Date(date.setMonth(date.getMonth() - 1));
   const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1));
 
   try {
-    const income = await Order.aggregate([
-      //!Stage Operator=$match/group/sort/count/limit
+    const result = await Order.aggregate([
       {
         $match: {
-            //!Bu aşama createdAt alanının, belirtilen previousMonth değişkeninin değerinden
-            //!büyük veya eşit olduğu belgeleri seçer. Bu, belirli bir zaman aralığına ait
-            //!siparişleri seçmeyi amaçlar. Ayrıca, isteğe bağlı olarak productId değişkeni mevcutsa,
-            //!products alanında bu productId'yi içeren belgeleri de seçer. Bu, belirli bir ürünle ilgili siparişleri sorgulamayı amaçlar.
-             //!Örnek olarak, createdAt alanı geçerli ayın başından daha büyük veya eşit olan ve ayrıca products alanında belirli bir productId'yi içeren siparişleri seçmeyi sağlar.
           createdAt: { $gte: previousMonth },
-          ...(productId && { //! kasim ayinda ki orderlari tutuyo
-            products: { $elementMatch: { productId } },
+          ...(productId && {
+            products: { $elemMatch: { productId } },
           }),
         },
       },
       {
         $project: {
-          month: { $month: "$createdAt" }, //!createdAt kismindan ay bilgisini cekiyor
-          sales: "$amount",
+          month: { $month: "$createdAt" },
+          sales: "$total",
         },
       },
       {
@@ -111,12 +105,60 @@ const getMonthlyIncome = async (req, res) => {
           total: { $sum: "$sales" },
         },
       },
+      {
+        $project: {
+          _id: 1,
+          total: 1,
+        },
+      },
     ]);
-    res.status(200).json(income);
+    res.status(200).json(result);
   } catch (err) {
     res.status(500).json(err);
   }
 };
+
+const getMonthlyOrderCount = async (req, res) => {
+  const productId = req.query.pid; //pid = product id
+  const date = new Date();
+  const lastMonth = new Date(date.setMonth(date.getMonth() - 1));
+  const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1));
+
+  try {
+    const result = await Order.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: previousMonth },
+          ...(productId && {
+            products: { $elemMatch: { productId } },
+          }),
+        },
+      },
+      {
+        $project: {
+          month: { $month: "$createdAt" },
+        },
+      },
+      {
+        $group: {
+          _id: "$month",
+          orderCount: { $sum: 1 },
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          orderCount: 1,
+        },
+      },
+    ]);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+
 
 module.exports = {
   createOrder,
@@ -124,5 +166,6 @@ module.exports = {
   updateOrder,
   getUserOrder,
   getAlluserOrder,
-  getMonthlyIncome,
+  getMonthlyTotalIncome,
+  getMonthlyOrderCount,
 };

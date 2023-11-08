@@ -13,3 +13,7 @@
 {"level":"info","message":"[Order ID: 6544c71fef91525cd0c5f61b] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T10:10:39.443Z"}
 {"level":"info","message":"[Order ID: 6544cb11ef91525cd0c5f63c] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T10:27:29.381Z"}
 {"level":"info","message":"[Order ID: 6544cbfcef91525cd0c5f645] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T10:31:24.389Z"}
+{"level":"info","message":"[Order ID: 6544d4c5ef91525cd0c5f6c7] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T11:08:53.441Z"}
+{"level":"info","message":"[Order ID: 6544da9bef91525cd0c5f6d1] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-03T11:33:47.369Z"}
+{"level":"error","message":"[Event Type: Create Order] [Success Status: Unsuccessful] [Error Message: Order could not be created]","timestamp":"2023-11-04T09:41:54.260Z"}
+{"level":"info","message":"[Order ID: 654618c7cbeea98d128b8e1c] [Event Type: Create Order] [Success Status: Successful]","timestamp":"2023-11-04T10:11:19.954Z"}

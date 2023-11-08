@@ -2,7 +2,6 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
 import Widget from "../../components/widget/Widget";
-import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
 import { useEffect, useState } from "react";
@@ -13,6 +12,14 @@ const Home = () => {
   const [aggregationResult, setAggregationResult] = useState([]);
   const [count,setCount] = useState("");
   const [prevCount,setPrevCount] = useState("");
+
+  const [monthlyOrderAggregation, setMonthlyOrderAggregation] = useState([]);
+  const [monthlyOrder,setMonthlyOrder]= useState("");
+  const [prevMonthlyOrder,setPrevMonthlyOrder]= useState("");
+
+  const [monthlyIncomeAggregation, setMonthlyIncomeAggregation] = useState([]);
+  const [monthlyIncome,setMonthlyIncome]= useState("");
+  const [prevMonthlyIncome,setPrevMonthlyIncome]= useState("");
 
   //! user Count Info
   useEffect(() => {
@@ -28,7 +35,33 @@ const Home = () => {
     fetchData(); // Verileri çekmek için fetchData fonksiyonunu çağırın
   }, []); // Bu etkileşim yalnızca bileşenin monte edilmesi sırasında çalışır
 
-  //! user Count Info
+  //! Order Count
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await publicRequest.get("order/getMonthlyOrderCount"); // API rotasının yolunu buraya ekleyin
+        setMonthlyOrderAggregation(response.data); // Gelen verileri bileşen durumuna kaydedin
+      } catch (error) {
+        console.error("API hatası:", error);
+      }
+    };
+    fetchData(); // Verileri çekmek için fetchData fonksiyonunu çağırın
+  }, []);
+
+  //! Total Count
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await publicRequest.get("order/getMonthlyTotalIncome"); // API rotasının yolunu buraya ekleyin
+        setMonthlyIncomeAggregation(response.data); // Gelen verileri bileşen durumuna kaydedin
+      } catch (error) {
+        console.error("API hatası:", error);
+      }
+    };
+    fetchData(); // Verileri çekmek için fetchData fonksiyonunu çağırın
+  }, []);
+
+  //! user count duzenleme
   // Veri geldiğinde durum güncellemelerini yap
   useEffect(() => {
     if (aggregationResult.length > 0) {
@@ -45,7 +78,32 @@ const Home = () => {
         setPrevCount((count / prev - 1) * 100);
       }
     }
-  }, [aggregationResult]);
+  }, [aggregationResult,count]);
+
+  //! Total Income Count Düzenleme
+  useEffect(() => {
+    if (monthlyIncomeAggregation.length >= 2) {
+      const currentMonth = monthlyIncomeAggregation[0].total;
+      const prevMonth = monthlyIncomeAggregation[1].total;
+      const totalPrev = prevMonth === 0 ? 0 : parseFloat(((currentMonth / prevMonth - 1) * 100).toFixed(1));
+
+      setMonthlyIncome(currentMonth);
+      setPrevMonthlyIncome(totalPrev);
+    }
+  }, [monthlyIncomeAggregation]);
+
+  //! Monthly Order Count Düzenleme
+  useEffect(() => {
+    if (monthlyOrderAggregation.length >= 2) {
+      const currentMonth = monthlyOrderAggregation[0].orderCount;
+      const prevMonth = monthlyOrderAggregation[1].orderCount;
+      const orderPrev = prevMonth === 0 ? 0 : parseFloat(((currentMonth / prevMonth - 1) * 100).toFixed(1));
+
+      setMonthlyOrder(currentMonth);
+      setPrevMonthlyOrder(orderPrev);
+    }
+  }, [monthlyOrderAggregation]);
+
 
   return (
     <div className="home">
@@ -57,17 +115,13 @@ const Home = () => {
             <Widget type="user" amount={count} diff={prevCount} />
           </Link>
           <Link to={"/orders"} style={{ textDecoration: "none" }}>
-            <Widget type="order" amount={200} diff={20}/>
+            <Widget type="order" amount={monthlyOrder} diff={prevMonthlyOrder}/>
           </Link>
           <Link to={"/orders"} style={{ textDecoration: "none" }}>
-            <Widget type="earning" amount={300} diff={30}/>
-          </Link>
-          <Link to={"/orders"} style={{ textDecoration: "none" }}>
-            <Widget type="balance" amount={400} diff={40}/>
+            <Widget type="earning" amount={monthlyIncome} diff={prevMonthlyIncome}/>
           </Link>
         </div>
         <div className="charts">
-          <Featured />
           <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
         </div>
         <div className="listContainer">

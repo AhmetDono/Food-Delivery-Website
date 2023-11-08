@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import { useLocation} from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getStorage,
@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { updateUser } from "../../store/apiCalls";
 
 const EditProfile = ({ inputs, title }) => {
+  const navigate = useNavigate();
   const location = useLocation();
   const userId = location.pathname.split("/")[3];
   const User = useSelector((state) =>
@@ -103,7 +104,8 @@ const EditProfile = ({ inputs, title }) => {
           showSuccessToast();
           setFile(null);
           setInput({});
-          setAddress({})
+          setAddress({});
+          navigate( `/user/${userId}`);
         });
       }
     );

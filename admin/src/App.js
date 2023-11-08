@@ -20,8 +20,8 @@ import EditFood from "./pages/editFood/EditFood";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   const user = useSelector((state) => state.auth.currentUser);
-  //const isAdmin = useSelector((state) => state.auth.currentUser.isAdmin);
   const isAdmin = user?.isAdmin; // Use optional chaining here to handle null or undefined values
+
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
@@ -35,39 +35,25 @@ function App() {
               path="login"
               element={user || isAdmin ? <Home /> : <Login />}
             />
-            {isAdmin && (
-              <>
-                <Route path="users" element={<List />} />
-                <Route path="user/:userId" element={<Single />} />
-                <Route
-                  path="user/editProfile/:userId"
-                  element={
-                    <EditProfile
-                      inputs={userInputs}
-                      title="Edit User Profile"
-                    />
-                  }
-                />
-                <Route path="foods" element={<FoodList />} />
-                <Route path="food/:foodId" element={<SingleFood />} />
-                <Route
-                  path="foods/new"
-                  element={<NewFood inputs={foodInputs} title="Add New Food" />}
-                />
-                <Route
-                  path="food/editFoodDetails/:foodId"
-                  element={
-                    <EditFood
-                      inputs={foodInputs}
-                      title="Edit Food Details"
-                    />
-                  }
-                />
-                <Route path="orders" element={<OrderList />} />
-                <Route path="orders/:orderID" element={<SingleOrder />} />
-                <Route path="logs" element={<Logs />} />
-              </>
-            )}
+            <Route path="users" element={<List />} />
+            <Route path="user/:userId" element={<Single />} />
+            <Route
+              path="user/editProfile/:userId"
+              element={<EditProfile inputs={userInputs} title="Edit User Profile" />}
+            />
+            <Route path="foods" element={<FoodList />} />
+            <Route path="food/:foodId" element={<SingleFood />} />
+            <Route
+              path="foods/new"
+              element={<NewFood inputs={foodInputs} title="Add New Food" />}
+            />
+            <Route
+              path="food/editFoodDetails/:foodId"
+              element={<EditFood inputs={foodInputs} title="Edit Food Details" />}
+            />
+            <Route path="orders" element={<OrderList />} />
+            <Route path="orders/:orderID" element={<SingleOrder />} />
+            <Route path="logs" element={<Logs />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./chart.scss";
 import {
   AreaChart,
@@ -7,17 +8,44 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { publicRequest } from "../../requestMethods";
+import { useState } from "react";
 
-const data = [
-  { name: "January", Total: 1200 },
-  { name: "February", Total: 2100 },
-  { name: "March", Total: 800 },
-  { name: "April", Total: 1600 },
-  { name: "May", Total: 900 },
-  { name: "June", Total: 1700 },
+const monthNames = [
+  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 ];
 
 const Chart = ({ aspect, title }) => {
+  const [monthlyIncomeAggregation, setMonthlyIncomeAggregation] = useState([]);
+  
+  //! Total Count
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await publicRequest.get("order/getMonthlyTotalIncome");
+        setMonthlyIncomeAggregation(response.data);
+      } catch (error) {
+        console.error("API hatası:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const today = new Date();
+  const lastSixMonths = Array.from({ length: 6 }, (_, i) => {
+    const date = new Date(today);
+    date.setMonth(today.getMonth() - i);
+    return date;
+  });
+
+  const formattedData = lastSixMonths.map(month => {
+    const monthName = monthNames[month.getMonth()];
+    const monthData = monthlyIncomeAggregation.find(data => data._id === month.getMonth() + 1);
+    const total = monthData ? monthData.total : 0;
+    return { _id: monthName, total };
+  });
+  formattedData.sort((a, b) => monthNames.indexOf(a._id) - monthNames.indexOf(b._id));
+
   return (
     <div className="chart">
       <div className="title">{title}</div>
@@ -25,7 +53,7 @@ const Chart = ({ aspect, title }) => {
         <AreaChart
           width={730}
           height={250}
-          data={data}
+          data={formattedData}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
@@ -34,12 +62,12 @@ const Chart = ({ aspect, title }) => {
               <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="name" stroke="gray" />
+          <XAxis dataKey="_id" stroke="gray" />
           <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="Total"
+            dataKey="total"
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#total)"

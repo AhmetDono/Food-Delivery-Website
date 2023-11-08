@@ -3,22 +3,23 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 import { logout } from '../../store/auth';
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const user = useSelector((state)=>state.auth.currentUser);
   const isAdmin = user?.isAdmin; // Use optional chaining here
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     e.preventDefault();
     console.log("Logout button clicked");
     dispatch(logout());
+    navigate("/login");
   }
   return (
     <div className="sidebar">
@@ -75,17 +76,6 @@ const Sidebar = () => {
             <span>Orders</span>
             </li>
           </Link>
-          <p className="title">SERVICE</p>
-          <Link to="/logs" style={{ textDecoration: "none" }}>
-            <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-            </li>
-          </Link>
-          <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
-          </li>
           </>
             )}
           <p className="title">LOGOUT</p>

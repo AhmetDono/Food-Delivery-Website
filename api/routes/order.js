@@ -4,7 +4,8 @@ const { createOrder,
     updateOrder,
     getUserOrder,
     getAlluserOrder,
-    getMonthlyIncome } = require('../controllers/order');
+    getMonthlyOrderCount,
+    getMonthlyTotalIncome } = require('../controllers/order');
 
 const router = express.Router();
 
@@ -13,6 +14,7 @@ router.delete('/deleteOrder/:id',deleteOrder);
 router.put('/updateOrder/:id',updateOrder);
 router.get('/getUserOrder/:id',getUserOrder);
 router.get('/getAllUserOrder',getAlluserOrder);
-router.get('/getMonthlyIncome',getMonthlyIncome);
+router.get('/getMonthlyOrderCount',getMonthlyOrderCount);
+router.get('/getMonthlyTotalIncome',getMonthlyTotalIncome);
 
 module.exports = router

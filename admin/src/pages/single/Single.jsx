@@ -14,7 +14,7 @@ const Single = () => {
   const User = useSelector((state) =>
     state.user.users.find((user) => user._id === userId)
   );
-
+  console.log(User)
   return (
     <div className="single">
       <Sidebar />

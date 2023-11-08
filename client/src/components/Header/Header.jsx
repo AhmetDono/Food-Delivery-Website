@@ -24,10 +24,6 @@ const nav__links = [
     display: 'Cart',
     path: '/cart',
   },
-  {
-    display: 'Contact',
-    path: '/contact',
-  },
 ];
 const Header = () => {
   const user = useSelector((state)=>state.auth.currentUser);
